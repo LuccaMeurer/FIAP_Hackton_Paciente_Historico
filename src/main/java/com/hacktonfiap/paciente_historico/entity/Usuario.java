@@ -34,5 +34,11 @@ public class Usuario {
     private Boolean ativo = true;
 
     @Column(nullable = false)
-    private LocalDateTime criadoEm = LocalDateTime.now();
+    private LocalDateTime criadoEm;
+
+    @PrePersist
+    public void prePersist() {
+        this.criadoEm = LocalDateTime.now();
+    }
+
 }

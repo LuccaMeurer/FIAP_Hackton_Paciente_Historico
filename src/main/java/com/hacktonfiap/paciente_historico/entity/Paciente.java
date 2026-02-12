@@ -32,8 +32,13 @@ public class Paciente {
 
     private String email;
 
-    @Column(nullable = false)
-    private LocalDateTime criadoEm = LocalDateTime.now();
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime criadoEm;
+
+    @PrePersist
+    public void prePersist() {
+        this.criadoEm = LocalDateTime.now();
+    }
 
     @OneToMany(mappedBy = "paciente")
     private List<Receita> receitas;
