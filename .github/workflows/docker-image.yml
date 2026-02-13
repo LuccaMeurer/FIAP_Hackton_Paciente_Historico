@@ -1,16 +1,23 @@
-name: Build and Push to ACR
+name: Deploy to Azure Container Apps
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ] 
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      
       - name: Log in to ACR
         uses: azure/docker-login@v1
         with:
@@ -18,7 +25,18 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
+      
+      
       - name: Build and push image
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/paciente-app:latest .
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/paciente-app:latest
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/ca-fiap-postech:${{ github.sha }} .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ca-fiap-postech:${{ github.sha }}
+
+      
+      - name: Deploy to Azure Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          acrName: ${{ secrets.ACR_USERNAME }} 
+          containerAppName: ca-fiap-postech
+          resourceGroup: rg-fiap-postech
+          imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/ca-fiap-postech:${{ github.sha }}
