@@ -1,0 +1,304 @@
+{
+  "info": {
+    "_postman_id": "ece7e31e-0f8b-4f82-bb80-27d6b07376d9",
+    "name": "Fase5 - Paciente_Historico",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36159861"
+  },
+  "item": [
+    {
+      "name": "Add Paciente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"João Almeida\",\r\n  \"cpf\": \"12345689600\",\r\n  \"telefone\": \"11999999999\",\r\n  \"email\": \"joao@email.com\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/pacientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pacientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Receita",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "2adfdbec-473e-47d5-8ff6-ea0fbed0e624",
+              "src": "/C:/Users/lsmeurer/Downloads/printBusca.jpeg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/receitas/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receitas",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download Receita",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5MDU4NjIsImV4cCI6MTc3MDkwOTQ2Mn0.pwhf6TZRqvoyfibvaG7bg-9ZDWZIRJHYyCRJ99q-fYI",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/receitas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "receitas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nome\": \"Admin\",\r\n  \"email\": \"admin@email.com\",\r\n  \"senha\": \"123456\",\r\n  \"role\": \"ADMIN\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/usuarios",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "usuarios"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"admin@email.com\",\r\n  \"senha\": \"123456\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Teste",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA4NjY1MzUsImV4cCI6MTc3MDg3MDEzNX0.qh-y9nz685JXnmGd6ZTR0WWHu61uvQgq0e08JI-kATQ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/teste",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "teste"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find All Pacientes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/pacientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pacientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find Paciente By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/pacientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pacientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find Paciente By Name",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/pacientes/buscar?nome=Pedro",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pacientes",
+            "buscar"
+          ],
+          "query": [
+            {
+              "key": "nome",
+              "value": "Pedro"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find Paciente By CPF",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJpYXQiOjE3NzA5NDIzMjQsImV4cCI6MTc3MDk0NTkyNH0.7RlsB67IQ_2_QWLbihQI94pQvsrpxIHhisFSA1WGF6Y",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/pacientes/buscar?cpf=12345689600",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "pacientes",
+            "buscar"
+          ],
+          "query": [
+            {
+              "key": "cpf",
+              "value": "12345689600"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
