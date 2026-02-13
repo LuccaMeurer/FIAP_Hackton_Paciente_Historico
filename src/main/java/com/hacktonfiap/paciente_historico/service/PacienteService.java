@@ -56,7 +56,7 @@ public class PacienteService {
         return new PacienteResponse(
                 paciente.getId(),
                 paciente.getNome(),
-                paciente.getCpf()
+                mascararCpf(paciente.getCpf())
         );
     }
 }
